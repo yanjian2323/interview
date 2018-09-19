@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BFC</title>
+	<style type="text/css">
+		* { padding: 0; margin: 0; }
+	</style>
+</head>
+<body>
+	<!-- 1. BFC解决垂直方向的margin重叠问题 -->
+	<div class="box">
+		<style>
+			.box {
+				background: #ccc;
+				/*这个地方的overflow触发BFC解决第一个p的重叠问题*/
+				overflow: hidden;
+			}
+			.box  p {
+				margin: 25px 0;
+				background: green;
+			}
+		</style>
+		<p>p1p1p1p1p1p1p1p1p1p1p1</p>
+		<!-- 加一个div设置BFC来解决重叠 -->
+		<div style="overflow:hidden;">
+			<p>p2p2p2p2p2p2p2p2p2p2p2</p>
+		</div>
+		
+		<p>p3p3p`3p3p3p3p3p3p3p3p3</p>
+	</div>
+
+	<br />
+
+	<!-- 2. BFC解决清除浮动的问题 -->
+	<div class="clearfix">
+		<style>
+			.clearfix {
+				background: green;
+				overflow: auto;
+				/*overflow: hidden;*/
+				/*float: left;*/
+				/*display: inline-block;*/
+				/*display: table;*/
+				/*display: table-cell;*/
+				/*position: absolute;*/
+				/*position: fixed;*/
+			}
+			.left {
+				height: 100px;
+				width: 100px;
+				float: left;
+			}
+			.right {
+				height: 100px;
+				width: 100px;
+				float: left;
+			}
+		</style>
+		<div class="left">left</div>
+		<div class="right">right</div>
+	</div>
+	
+	<br />
+
+	<!-- 3. BFC和浮动元素的区域部重叠 -->
+	<div class="container">
+		<style>
+			.container{
+				overflow: hidden;
+				height: 110px;
+				background: pink;
+			}
+			.float {
+				float: left;
+				height: 100px;
+				width: 100px;
+				background: green;
+			}
+			.other {
+				height: 110px;
+				background: #ccc;
+				/*用overflow触发BFC*/
+				overflow: auto;
+			}
+		</style>
+		<div class="float">float</div>
+		<div class="other">
+			otherotherotherotherother
+		</div>
+	</div>
+</body>
+</html>

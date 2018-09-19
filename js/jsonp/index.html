@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp</title>
+	<script type="text/javascript" src="/jsonp.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		// jsonp('http://localhost:8085/jsonp', function (data) {
+		// 	console.log(data);
+		// }, function (err) {
+		// 	console.log('资源不存在:' + err);
+		// });
+		jsonp2('http://localhost:8085/111', {
+			onsuccess: function (data) {
+				console.log(data);
+			},
+			onerror: function (err) {
+				console.log(err);
+			}
+		});
+	</script>
+</body>
+</html>

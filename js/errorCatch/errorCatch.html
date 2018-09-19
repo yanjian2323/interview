@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>错误监控</title>
+	<script type="text/javascript">
+	window.onerror = function(errorMessage, scriptURI, lineNumber, columnNumber, error){
+        console.log(errorMessage);
+        console.log(scriptURI);
+        console.log(lineNumber);
+        console.log(columnNumber);
+        console.log(error);
+    }
+    // window.addEventListener('error', (err) => {
+    // 	alert(11);
+    // }, true);
+	</script>
+	<!-- <script type="text/javascript" src="./crossDomain.js"></script> -->
+	<script type="text/javascript" crossorigin src="//interview2.com/js/errorCatch/crossDomain.js"></script>
+	<!-- <script type="text/javascript">
+		let sc = document.createElement('script');
+		sc.src = 'http://interview2.com/js/errorCatch/crossDomain.js';
+		document.head.appendChild(sc);
+
+		sc.onerror = function(err){
+			console.log(err);
+		};
+	</script> -->
+</head>
+<body>
+	<script>
+	</script>
+</body>
+</html>
